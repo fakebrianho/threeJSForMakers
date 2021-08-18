@@ -16,27 +16,23 @@ function init() {
 
   var geometry = new THREE.BoxGeometry(1, 1, 1);
   var material = new THREE.MeshPhongMaterial({ color: 0x00ff00 });
+
   cube = new THREE.Mesh(geometry, material);
   scene.add(cube);
 
-  let dLight = new THREE.DirectionalLight(0xffffff, 0.5);
-  dLight.position.set(3, 4, 0);
+  var dLight = new THREE.DirectionalLight(0xffffff, 0.5);
+  dLight.position.set(4, 4, 0);
   scene.add(dLight);
-
   camera.position.z = 5;
   window.addEventListener("resize", onWindowResize, false);
 }
 
-// const onWindowResize = function () {
 function onWindowResize() {
-  windowHalfX = window.innerWidth / 2;
-
+  windowHalfX = window.inner / 2;
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
-
   renderer.setSize(window.innerWidth, window.innerHeight);
 }
-// };
 
 const animate = function () {
   requestAnimationFrame(animate);
